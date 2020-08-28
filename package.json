@@ -22,7 +22,7 @@
     "gatsby-remark-copy-linked-files": "^2.3.1",
     "gatsby-remark-images": "^3.3.0",
     "gatsby-remark-prismjs": "^3.5.0",
-    "gatsby-source-buzzsprout-api": "1.0.3",
+    "gatsby-source-buzzsprout-api": "1.0.4",
     "gatsby-source-filesystem": "^2.3.0",
     "gatsby-transformer-sharp": "^2.5.0",
     "prismjs": "^1.20.0",
