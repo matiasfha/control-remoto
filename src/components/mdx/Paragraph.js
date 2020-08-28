@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export default styled.p`
   text-align: left;
@@ -6,4 +6,4 @@ export default styled.p`
   line-height: 1.58;
   letter-spacing: -0.003em;
   color: #555555;
-`;
+`

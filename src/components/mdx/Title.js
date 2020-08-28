@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export default styled.h1`
   text-align: center;
@@ -10,4 +10,4 @@ export default styled.h1`
   margin-bottom: 20px;
   padding-top: 30px;
   padding-bottom: 10px;
-`;
+`
