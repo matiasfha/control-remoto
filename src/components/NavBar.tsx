@@ -19,7 +19,7 @@ const Menu = tw.div`
 `
 
 const MenuItem = tw(Link)`
-  text-white px-1 no-underline text-base font-bold leading-5 px-8
+  text-white px-1 no-underline text-base font-bold leading-5 px-8 font-muli
 `
 
 const Button = tw(MenuItem)`

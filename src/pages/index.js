@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import tw, { styled } from 'twin.macro'
 
-import Layout from '../components/Layout'
+import Layout from '@/components/Layout'
 import Hero from '@/components/Hero'
 import DefaultGrid from '@/components/Grid'
 
@@ -20,7 +20,7 @@ const PlayerContainer = tw.div`
 
 const PlayListContainer = styled.div`
   ${tw`relative top-32 rounded-md shadow-2xl`}
-  div:first-child {
+  div:first-of-type {
     background-color: #ffffff;
     box-shadow: 0 1px 20px 0 rgba(17, 17, 17, 0.31);
     ${tw`p-6`}

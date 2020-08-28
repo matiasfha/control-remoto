@@ -1,7 +1,13 @@
 import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 
-const Link = ({ children, to, ...other }) => {
+const Link: React.FC<{ to: string }> = ({
+  children,
+  to,
+  ...other
+}: {
+  to: string
+}) => {
   const internal = /^\/(?!\/)/.test(to)
 
   if (internal) {

@@ -5,7 +5,7 @@ import { MDXGlobalComponents, MDXLayoutComponents } from '@/components/mdx'
 import tw from 'twin.macro'
 
 import NavBar from '@/components/NavBar'
-import Seo from '@/components/Seo'
+import Seo, { SiteT, FrontMatterT } from '@/components/Seo'
 // Import Twitter from "@/components/Twitter";
 
 import 'prismjs/themes/prism-okaidia.css'
@@ -36,7 +36,17 @@ const Container = tw.div`
   top-0 relative bg-white w-screen h-screen
 `
 
-export default ({ site, frontmatter = {}, children }) => (
+type PropsT = {
+  site: {
+    siteMetadata: SiteT
+  }
+  frontmatter: FrontMatterT
+}
+const Layout: React.FC<PropsT> = ({
+  site,
+  frontmatter = {},
+  children,
+}: PropsT) => (
   <Fragment>
     <Seo site={site.siteMetadata} frontmatter={frontmatter} />
     <GlobalStyle />
@@ -54,3 +64,5 @@ export default ({ site, frontmatter = {}, children }) => (
     </MDXProvider>
   </Fragment>
 )
+
+export default Layout

@@ -10,7 +10,7 @@ const Grid = tw(GridDefault)`
   grid-cols-2
 `
 const H1 = tw.h1`
-  text-white text-4xl
+  text-white text-4xl font-chivo font-bold
 `
 const Hero: React.FC = () => {
   return (
