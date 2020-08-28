@@ -1,23 +1,20 @@
-import React, { Fragment } from 'react';
-import { Helmet } from 'react-helmet';
-import { graphql } from 'gatsby';
-import { MDXProvider } from '@mdx-js/react';
-import { createGlobalStyle } from 'styled-components';
+import React, { Fragment } from 'react'
+import { MDXProvider } from '@mdx-js/react'
+import { createGlobalStyle } from 'styled-components'
+import { MDXGlobalComponents, MDXLayoutComponents } from '@/components/mdx'
+import tw from 'twin.macro'
 
-import 'prismjs/themes/prism-okaidia.css';
+import NavBar from '@/components/NavBar'
+import Seo from '@/components/Seo'
+// Import Twitter from "@/components/Twitter";
 
-import Link from './Link';
-import { MDXLayoutComponents, MDXGlobalComponents } from './mdx';
+import 'prismjs/themes/prism-okaidia.css'
 
 const GlobalStyle = createGlobalStyle`
   html, body {
     margin: 0;
     padding: 0;
   }
-
-  ${() => {
-    /* Override PrismJS Defaults */ return null;
-  }}
 
   pre {
     background-color: #2f1e2e !important;
@@ -33,72 +30,27 @@ const GlobalStyle = createGlobalStyle`
     padding-right: 1em;
     padding-left: 1em;
   }
-`;
+`
 
-const NAVIGATION = [
-  { to: '/', label: 'About' },
-  { to: '/blog', label: 'Blog' },
-  { to: 'https://roadtoreact.com', label: 'Courses' },
-];
+const Container = tw.div`
+  top-0 relative bg-white w-screen h-screen
+`
 
-export default ({ site, frontmatter = {}, children }) => {
-  const {
-    title,
-    description: siteDescription,
-    keywords: siteKeywords,
-  } = site.siteMetadata;
+export default ({ site, frontmatter = {}, children }) => (
+  <Fragment>
+    <Seo site={site.siteMetadata} frontmatter={frontmatter} />
+    <GlobalStyle />
 
-  const {
-    keywords: frontmatterKeywords,
-    description: frontmatterDescription,
-  } = frontmatter;
-
-  const keywords = (frontmatterKeywords || siteKeywords).join(', ');
-  const description = frontmatterDescription || siteDescription;
-
-  return (
-    <Fragment>
-      <Helmet
-        title={title}
-        meta={[
-          { name: 'description', content: description },
-          { name: 'keywords', content: keywords },
-        ]}
-      >
-        <html lang="en" />
-      </Helmet>
-
-      <GlobalStyle />
-
-      <MDXProvider
-        components={{
-          ...MDXLayoutComponents,
-          ...MDXGlobalComponents,
-        }}
-      >
-        <Fragment>
-          <ul>
-            {NAVIGATION.map(navigation => (
-              <li key={navigation.label}>
-                <Link to={navigation.to}>{navigation.label}</Link>
-              </li>
-            ))}
-          </ul>
-
-          {children}
-        </Fragment>
-      </MDXProvider>
-    </Fragment>
-  );
-};
-
-export const pageQuery = graphql`
-  fragment site on Site {
-    siteMetadata {
-      title
-      description
-      author
-      keywords
-    }
-  }
-`;
+    <MDXProvider
+      components={{
+        ...MDXLayoutComponents,
+        ...MDXGlobalComponents,
+      }}
+    >
+      <Container>
+        <NavBar />
+        {children}
+      </Container>
+    </MDXProvider>
+  </Fragment>
+)
