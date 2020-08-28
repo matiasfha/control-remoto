@@ -12,7 +12,9 @@ Thanks goes to these wonderful people
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center">
+    <td align="center"><a href="https://www.matiashernandez.dev"><img src="https://avatars3.githubusercontent.com/u/282006?s=400&u=a9d3c26dc6c2cfc5cbe04192b1fd6c2bb29c9be5&v=4" width="100px;" alt=""/><br /><sub><b>Matías Hernández</b></sub></a><br /><a href="https://github.com/matiasfha/control-remoto/commits?author=matiasfha" title="Code">💻</a></td>
+       <td align="center"><a href="https://www.iamcamilo.me"><img src="https://avatars0.githubusercontent.com/u/25529313?s=460&u=6c824ed96231f9337264e49dbe5349b693bdd05d&v=4" width="100px;" alt=""/><br /><sub><b>Camilo Muñoz</b></sub></a><br /><a href="https://github.com/matiasfha/control-remoto/commits?author=rwieruch" title="Code">💻</a><a href="#design-iamcamilo" title="Design">🎨</a></td>
+        <td align="center">
       <a href="https://www.robinwieruch.de">
         <img src="https://avatars0.githubusercontent.com/u/2479967?v=4" width="100px;" alt=""/>
         <br />
@@ -23,8 +25,6 @@ Thanks goes to these wonderful people
       <br />
       <a href="https://github.com/rwieruch/gatsby-mdx-blog-starter-project" title="Code">💻</a>
     </td>
-    <td align="center"><a href="https://www.matiashernandez.dev"><img src="https://avatars3.githubusercontent.com/u/282006?s=400&u=a9d3c26dc6c2cfc5cbe04192b1fd6c2bb29c9be5&v=4" width="100px;" alt=""/><br /><sub><b>Matías Hernández</b></sub></a><br /><a href="https://github.com/matiasfha/control-remoto/commits?author=matiasfha" title="Code">💻</a></td>
-       <td align="center"><a href="https://www.iamcamilo.me"><img src="https://avatars0.githubusercontent.com/u/25529313?s=460&u=6c824ed96231f9337264e49dbe5349b693bdd05d&v=4" width="100px;" alt=""/><br /><sub><b>Camilo Muñoz</b></sub></a><br /><a href="https://github.com/matiasfha/control-remoto/commits?author=rwieruch" title="Code">💻</a><a href="#design-iamcamilo" title="Design">🎨</a></td>
   </tr>
   </table>
   <!-- markdownlint-enable -->
