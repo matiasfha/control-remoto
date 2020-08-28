@@ -2,7 +2,14 @@ import React from 'react'
 import Link from '@/components/Link'
 import { css } from '@emotion/core'
 
-const Twitter = ({ color = 'rgba(255,255,255,0.7)', url }) => (
+type Props = {
+  color: string
+  url: string
+}
+const Twitter: React.FC<Props> = ({
+  color = 'rgba(255,255,255,0.7)',
+  url,
+}: Props) => (
   <Link
     to={url}
     css={css`

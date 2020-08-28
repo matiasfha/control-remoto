@@ -1,9 +1,25 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import SchemaOrg from '@/components/SchemaOrg'
+// import SchemaOrg from '@/components/SchemaOrg'
 
-const Seo = ({ site, frontmatter }) => {
-  const ogImage = null
+export type SiteT = {
+  siteUrl: string
+  title: string
+  description: string
+  keywords: Array<string>
+  twitter: string
+}
+
+export type FrontMatterT = {
+  title?: string
+}
+export type Props = {
+  site: SiteT
+  frontmatter: FrontMatterT
+}
+
+const Seo: React.FC<Props> = ({ site, frontmatter }: Props) => {
+  let ogImage
 
   return (
     <Helmet title={site.title}>
@@ -23,7 +39,7 @@ const Seo = ({ site, frontmatter }) => {
       <meta name="twitter:creator" content={site.twitter} />
       <meta name="twitter:title" content={site.title} />
       <meta name="twitter:site" content={site.siteUrl} />
-      <meta name="twitter:description" content={site.escription} />
+      <meta name="twitter:description" content={site.description} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="image" content={ogImage} />
