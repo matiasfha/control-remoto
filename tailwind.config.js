@@ -4,6 +4,7 @@ module.exports = {
     fontFamily: {
       muli: ['muli, sans-serif'],
       chivo: ['Chivo'],
+      playfair: ['Playfair Display'],
     },
     extend: {
       colors: {
