@@ -11,11 +11,7 @@ const Grid = tw(GridDefault)`
 const H1 = styled.h1`
   ${tw`text-white text-4xl font-chivo font-bold`}
   a {
-    ${tw`no-underline`}
-    color: #FF2A5B;
-    &:hover {
-      text-decoration: underline;
-    }
+    ${tw`no-underline text-red hover:underline`}
   }
 `
 
@@ -24,7 +20,8 @@ const Hero: React.FC = () => {
     <Container>
       <Grid>
         <H1>
-          Control Remoto es el podcast donde <a href="#">Camilo y Matías</a>{' '}
+          Control Remoto es el podcast donde{' '}
+          <a href="#about">Camilo y Matías </a>
           conversan sobre la vida y el trabajo remoto
         </H1>
       </Grid>

@@ -104,7 +104,7 @@ const AboutSection: React.FC = () => {
   return (
     <Container>
       <Grid>
-        <div>
+        <div id="about">
           <Title>Control Remoto es</Title>
           <Copy>
             Después de 8 años de trabajo remoto, Camilo y Matias se embarcan en
@@ -114,8 +114,8 @@ const AboutSection: React.FC = () => {
           </Copy>
         </div>
         <Columns>
-          <Matias />
           <Camilo />
+          <Matias />
         </Columns>
       </Grid>
     </Container>
