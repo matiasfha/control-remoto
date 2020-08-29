@@ -23,13 +23,15 @@ const MenuItem = tw(Link)`
 `
 
 const Button = tw(MenuItem)`
-  bg-red rounded-md py-3 ml-6 transition duration-500 ease-in-out transform hover:scale-130
+  bg-red rounded-md py-3 ml-6 transition duration-500 ease-in-out transform hover:scale-125
 `
 
 const NavBar: React.FC = () => (
   <Nav>
     <Content>
-      <LogoImage />
+      <Link to="/">
+        <LogoImage />
+      </Link>
       <Menu style={{ justifySelf: 'end' }}>
         <MenuItem to="/">Home</MenuItem>
         <MenuItem to="/">Episodios</MenuItem>
