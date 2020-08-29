@@ -8,13 +8,14 @@ import Google from '@/assets/google.svg'
 const Container = styled.div`
   ${tw`-mt-32 rounded-md w-full pb-8`}
   h2 {
-    ${tw`text-red text-center font-chivo font-bold text-3xl leading-8`}
+    ${tw`text-red text-center font-chivo font-bold text-3xl leading-10`}
   }
 `
 
 const Buttons = styled.div`
-  ${tw`grid grid-cols-3 items-center justify-center py-4`}
+  ${tw`flex justify-center py-4`}
   a {
+    margin: 0 5px;
     text-underline: none;
     justify-self: center;
   }
@@ -36,10 +37,10 @@ const Player: React.FC<Props> = ({ url }: Props) => (
         title="Podcast Episode"
       />
       <Buttons>
-        <a href="https://podcasts.apple.com/cl/podcast/control-remoto/id1511456545">
+        <a href="https://open.spotify.com/show/7ubkh0BN3QuBlcYFyCwzT6">
           <Spotify />
         </a>
-        <a href="https://open.spotify.com/show/7ubkh0BN3QuBlcYFyCwzT6">
+        <a href="https://podcasts.apple.com/cl/podcast/control-remoto/id1511456545">
           <Apple />
         </a>
         <a href="https://podcasts.google.com/?feed=aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS8xMDU3MzUxLnJzcw==">

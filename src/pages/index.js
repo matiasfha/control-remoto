@@ -11,7 +11,7 @@ import AboutSection from '@/components/AboutSection'
 import Footer from '@/components/Footer'
 
 const Container = tw.div`
- bg-white w-screen relative 
+ bg-white w-screen relative
 `
 
 const Grid = styled(DefaultGrid)`
