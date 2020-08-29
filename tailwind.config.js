@@ -9,7 +9,6 @@ module.exports = {
       colors: {
         red: '#FF2A5B',
         dark: '#111111',
-        white: '#D8D8D8',
       },
       inset: {
         '-16': '-4rem',
