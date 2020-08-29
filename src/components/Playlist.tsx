@@ -8,23 +8,23 @@ const Container = styled.div`
 
 const TitleContainer = styled.div`
   ${tw`p-6`}
-  box-shadow: 0 4px 12px -4px rgba(17,17,17,0.31);
+  box-shadow: 0 1px 11px 0 rgba(17,17,17,0.13);
   h2 {
-    ${tw`text-dark font-chivo font-bold text-3xl leading-8`}
+    ${tw`text-dark font-chivo font-bold text-3xl leading-10 my-0`}
   }
   p {
-    ${tw`text-dark text-sm font-muli`}
+    ${tw`text-dark text-sm font-muli mb-0 mt-2`}
   }
 `
 
 const Episodes = tw.ul`
-  overflow-y-auto h-64 px-6
+  overflow-y-auto h-72 px-0 my-0
 `
 
 const Episode = styled.li`
   ${tw`list-none`}
   a {
-    ${tw`no-underline grid grid-cols-10 gap-1 justify-center items-center hover:bg-gray-200 py-2 w-full h-20`}
+    ${tw`no-underline grid grid-cols-10 gap-1 justify-center items-center transition duration-500 ease-in-out hover:bg-gray-200 py-2 px-6 h-20`}
   }
   img {
     ${tw`h-12 w-12 rounded-md self-center`}
