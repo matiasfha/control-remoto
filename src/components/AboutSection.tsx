@@ -11,7 +11,7 @@ const Title = tw.h1`
   text-center text-red font-chivo font-bold leading-8
 `
 const Copy = tw.p`
-  italic text-white font-muli text-xl text-center
+  italic text-white font-playfair text-xl text-center
 `
 
 const Columns = styled.div`

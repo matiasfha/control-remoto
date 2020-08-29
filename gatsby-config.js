@@ -125,7 +125,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Chivo:400,700'],
+          families: ['Chivo:400,700', 'Playfair Display:ital@1'],
         },
         typekit: {
           id: 'muli',
