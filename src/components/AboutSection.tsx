@@ -4,6 +4,7 @@ import Grid from '@/components/Grid'
 import Instagram from '@/assets/instagram-brands.svg'
 import Twitter from '@/assets/twitter-brands.svg'
 import Egghead from '@/assets/egghead.svg'
+
 const Container = tw.div`
   bg-black grid grid-rows-1 w-screen py-12 gap-12
 `
