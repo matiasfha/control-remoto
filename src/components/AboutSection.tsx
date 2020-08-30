@@ -6,7 +6,7 @@ import Twitter from '@/assets/twitter-brands.svg'
 import Egghead from '@/assets/egghead.svg'
 
 const Container = tw.div`
-  bg-black grid grid-rows-1 w-screen py-12 gap-12
+  bg-black grid grid-rows-1 max-w-full py-12 gap-12 px-4 md:px-8
 `
 const Title = tw.h1`
   text-center text-red font-chivo font-bold leading-8
@@ -16,12 +16,12 @@ const Copy = tw.p`
 `
 
 const Columns = styled.div`
-  ${tw`grid grid-cols-2 w-full py-16`}
+  ${tw`grid grid-cols-1 md:grid-cols-2 md:gap-8 w-full py-16`}
   justify-items: center;
 `
 
 const Card = styled.div`
-  ${tw`flex flex-col items-center justify-between`}
+  ${tw`flex flex-col items-center justify-between mb-8`}
   h2 {
     ${tw`font-chivo text-white text-xl leading-6 font-bold mb-0`}
   }

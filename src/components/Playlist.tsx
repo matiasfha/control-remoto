@@ -27,10 +27,10 @@ const Episode = styled.li`
     ${tw`no-underline grid grid-cols-10 gap-1 justify-center items-center transition duration-500 ease-in-out hover:bg-gray-200 py-2 px-6 h-20`}
   }
   img {
-    ${tw`h-12 w-12 rounded-md self-center`}
+    ${tw`col-span-3 md:col-span-1 h-12 w-12 rounded-md self-center`}
   }
   div {
-    ${tw`col-span-6`}
+    ${tw`col-span-7`}
   }
   h4 {
     ${tw`text-dark text-sm leading-6 font-bold font-muli m-0`}
@@ -57,7 +57,7 @@ type PropsT = {
   episodes: Array<EpisodeT>
 }
 
-const getLink = (audio_url) => {
+const getLink = (audio_url: string) => {
   return audio_url.split('.mp3').shift()
 }
 

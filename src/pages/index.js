@@ -11,11 +11,11 @@ import AboutSection from '@/components/AboutSection'
 import Footer from '@/components/Footer'
 
 const Container = tw.div`
- bg-white w-screen relative
+  bg-white max-w-full relative px-4 md:px-8
 `
 
 const Grid = styled(DefaultGrid)`
-  ${tw`max-w-screen-md relative pb-20`}
+  ${tw`relative pb-20 `}
 `
 
 export default function Index({

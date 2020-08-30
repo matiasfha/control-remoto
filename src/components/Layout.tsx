@@ -33,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Container = tw.div`
-  top-0 relative bg-white w-screen h-screen
+  top-0 relative bg-white w-full h-screen
 `
 
 type PropsT = {

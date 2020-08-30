@@ -3,13 +3,13 @@ import tw, { styled } from 'twin.macro'
 import GridDefault from '@/components/Grid'
 
 const Container = tw.div`
-  bg-black w-screen h-48 pt-8 pb-56
+  bg-black max-w-full h-48 pt-8 pb-56 px-4 md:px-8
 `
 const Grid = tw(GridDefault)`
-  grid-cols-2
+  grid-cols-1 md:grid-cols-2
 `
 const H1 = styled.h1`
-  ${tw`text-white text-4xl font-chivo font-bold`}
+  ${tw`text-white text-3xl md:text-4xl font-chivo font-bold text-center md:text-left`}
   a {
     ${tw`no-underline text-red hover:underline`}
   }

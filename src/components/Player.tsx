@@ -13,7 +13,7 @@ const Container = styled.div`
 `
 
 const Buttons = styled.div`
-  ${tw`flex justify-center py-4`}
+  ${tw`flex justify-start md:justify-center py-4 flex-wrap`}
   a {
     margin: 0 5px;
     text-underline: none;
