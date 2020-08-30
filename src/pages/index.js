@@ -9,6 +9,7 @@ import Player from '@/components/Player'
 import Playlist from '@/components/Playlist'
 import AboutSection from '@/components/AboutSection'
 import Footer from '@/components/Footer'
+import { ScrollContext } from '../utils/scrollToRef'
 
 const Container = tw.div`
   bg-white max-w-full relative px-4 md:px-8
@@ -28,16 +29,20 @@ export default function Index({
   episodeId = episodeId.split('.')[0]
   const embedUrl = `https://www.buzzsprout.com/${podcastId}/${episodeId}?client_source=admin&amp;iframe=true`
 
+  const [ref, setRef] = React.useState(null)
+
   return (
     <Layout site={site}>
-      <Hero />
-      <Container>
-        <Grid>
-          <Player url={embedUrl} />
-          <Playlist episodes={allPodcastEpisodeControlRemoto.nodes} />
-        </Grid>
-      </Container>
-      <AboutSection />
+      <ScrollContext.Provider value={{ ref, setRef }}>
+        <Hero />
+        <Container>
+          <Grid>
+            <Player url={embedUrl} />
+            <Playlist episodes={allPodcastEpisodeControlRemoto.nodes} />
+          </Grid>
+        </Container>
+        <AboutSection />
+      </ScrollContext.Provider>
       <Footer />
     </Layout>
   )

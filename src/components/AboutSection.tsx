@@ -4,6 +4,7 @@ import Grid from '@/components/Grid'
 import Instagram from '@/assets/instagram-brands.svg'
 import Twitter from '@/assets/twitter-brands.svg'
 import Egghead from '@/assets/egghead.svg'
+import { ScrollContext } from '../utils/scrollToRef'
 
 const Container = tw.div`
   bg-black grid grid-rows-1 max-w-full py-12 gap-12 px-4 md:px-8
@@ -101,10 +102,16 @@ const Camilo = () => {
 }
 
 const AboutSection: React.FC = () => {
+  console.log(ScrollContext)
+  const { setRef } = React.useContext(ScrollContext)
+  const ref = React.useRef(null)
+  React.useEffect(() => {
+    setRef(ref)
+  }, [ref, setRef])
   return (
     <Container>
       <Grid>
-        <div id="about">
+        <div ref={ref}>
           <Title>Control Remoto es</Title>
           <Copy>
             Después de 8 años de trabajo remoto, Camilo y Matias se embarcan en
