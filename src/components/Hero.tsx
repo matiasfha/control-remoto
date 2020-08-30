@@ -19,7 +19,6 @@ const Hero: React.FC = () => {
   const { ref } = React.useContext(ScrollContext)
 
   const onClick = () => {
-    console.log(ref)
     scrollToRef(ref)
   }
 

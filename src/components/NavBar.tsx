@@ -36,7 +36,7 @@ const NavBar: React.FC = () => (
         <MenuItem to="/">Home</MenuItem>
         {/*<MenuItem to="/">Episodios</MenuItem>
            <MenuItem to="/">Blog</MenuItem>*/}
-        <Button to="/">Únete a la comunidad</Button>
+        <Button to="/communidad">Únete a la comunidad</Button>
       </Menu>
     </Content>
   </Nav>

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, ReactChildren } from 'react'
 import { MDXProvider } from '@mdx-js/react'
 import { createGlobalStyle } from 'styled-components'
 import { MDXGlobalComponents, MDXLayoutComponents } from '@/components/mdx'
@@ -6,6 +6,8 @@ import tw from 'twin.macro'
 
 import NavBar from '@/components/NavBar'
 import Seo, { SiteT, FrontMatterT } from '@/components/Seo'
+import Footer from '@/components/Footer'
+import { ScrollContext } from '../utils/scrollToRef'
 // Import Twitter from "@/components/Twitter";
 
 import 'prismjs/themes/prism-okaidia.css'
@@ -41,28 +43,31 @@ type PropsT = {
     siteMetadata: SiteT
   }
   frontmatter: FrontMatterT
+  children: ReactChildren
 }
-const Layout: React.FC<PropsT> = ({
-  site,
-  frontmatter = {},
-  children,
-}: PropsT) => (
-  <Fragment>
-    <Seo site={site.siteMetadata} frontmatter={frontmatter} />
-    <GlobalStyle />
+const Layout: React.FC<PropsT> = ({ frontmatter = {}, children }: PropsT) => {
+  const [ref, setRef] = React.useState(null)
+  return (
+    <Fragment>
+      <Seo frontmatter={frontmatter} />
+      <GlobalStyle />
 
-    <MDXProvider
-      components={{
-        ...MDXLayoutComponents,
-        ...MDXGlobalComponents,
-      }}
-    >
-      <Container>
-        <NavBar />
-        {children}
-      </Container>
-    </MDXProvider>
-  </Fragment>
-)
+      <MDXProvider
+        components={{
+          ...MDXLayoutComponents,
+          ...MDXGlobalComponents,
+        }}
+      >
+        <Container>
+          <NavBar />
+          <ScrollContext.Provider value={{ ref, setRef }}>
+            {children}
+            <Footer />
+          </ScrollContext.Provider>
+        </Container>
+      </MDXProvider>
+    </Fragment>
+  )
+}
 
 export default Layout
