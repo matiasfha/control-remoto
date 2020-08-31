@@ -13,7 +13,7 @@ const Container = tw.div`
 `
 
 const Grid = styled(DefaultGrid)`
-  ${tw`relative pb-20 `}
+  ${tw`relative pb-20 max-w-screen-md`}
 `
 
 export default function Index({ data: { allPodcastEpisodeControlRemoto } }) {

@@ -1,14 +1,16 @@
 import React from 'react'
 import tw, { styled } from 'twin.macro'
-import Grid from '@/components/Grid'
+import DefaultGrid from '@/components/Grid'
 import Instagram from '@/assets/instagram-brands.svg'
 import Twitter from '@/assets/twitter-brands.svg'
 import Egghead from '@/assets/egghead.svg'
 import { ScrollContext } from '../utils/scrollToRef'
 
 const Container = tw.div`
-  bg-black grid grid-rows-1 max-w-full py-12 gap-12 px-4 md:px-8
+  bg-black grid grid-rows-1 max-w-full pt-12 gap-12 px-4 md:px-8
 `
+
+const Grid = styled(DefaultGrid)`max-w-screen-md`
 const Title = tw.h1`
   text-center text-red font-chivo font-bold leading-8
 `
@@ -101,8 +103,9 @@ const Camilo = () => {
   )
 }
 
-const Footer = tw.div`
-  text-center font-muli text-white text-sm pb-8 md:px-8
+const Footer = styled.div`
+  ${tw`text-center font-muli text-white text-sm pb-8 md:px-8`}
+  background-color: #000;
 `
 
 const AboutSection: React.FC = () => {

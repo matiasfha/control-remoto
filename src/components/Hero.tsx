@@ -2,6 +2,8 @@ import React from 'react'
 import tw, { styled } from 'twin.macro'
 import GridDefault from '@/components/Grid'
 import scrollToRef, { ScrollContext } from '../utils/scrollToRef'
+import Ilustracion from '@/assets/ilustracion.svg'
+
 const Container = tw.div`
   bg-black max-w-full h-48 pt-8 pb-56 px-4 md:px-8
 `
@@ -13,6 +15,11 @@ const H1 = styled.h1`
   span {
     ${tw`no-underline text-red hover:underline cursor-pointer`}
   }
+`
+
+const StyledSvg = styled(Ilustracion)`
+  justify-self: end;
+  ${tw`hidden md:inline-block w-11/12 lg:w-full`};
 `
 
 const Hero: React.FC = () => {
@@ -30,6 +37,7 @@ const Hero: React.FC = () => {
           <span onClick={onClick}>Camilo y Matías </span>
           conversan sobre la vida y el trabajo remoto
         </H1>
+        <StyledSvg />
       </Grid>
     </Container>
   )
