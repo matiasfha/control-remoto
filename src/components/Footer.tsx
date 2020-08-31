@@ -10,7 +10,9 @@ const Container = tw.div`
   bg-black grid grid-rows-1 max-w-full pt-12 gap-12 px-4 md:px-8
 `
 
-const Grid = styled(DefaultGrid)`max-w-screen-md`
+const Grid = styled(DefaultGrid)`
+  ${tw`max-w-screen-md`}
+`
 const Title = tw.h1`
   text-center text-red font-chivo font-bold leading-8
 `
