@@ -1,5 +1,6 @@
 import React from 'react'
 import tw, { styled } from 'twin.macro'
+import Link from '@/components/Link'
 
 const Container = styled.div`
   ${tw`relative rounded-md`}
@@ -74,7 +75,7 @@ const Playlist: React.FC<PropsT> = ({ episodes }: PropsT) => {
       <Episodes>
         {episodes.map((node: EpisodeT) => (
           <Episode key={node.id}>
-            <a href={getLink(node.audio_url)}>
+            <Link to={`episodios/${node.slug}`}>
               <img
                 src={node.remoteImage.childImageSharp.fluid.src}
                 alt={node.title}
@@ -83,7 +84,7 @@ const Playlist: React.FC<PropsT> = ({ episodes }: PropsT) => {
                 <h4>{node.title}</h4>
                 <span>{node.published_at}</span>
               </div>
-            </a>
+            </Link>
           </Episode>
         ))}
       </Episodes>

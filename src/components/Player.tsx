@@ -24,9 +24,9 @@ const Buttons = styled.div`
 type Props = {
   url: string
 }
-const Player: React.FC<Props> = ({ url }: Props) => (
+const Player: React.FC<Props> = ({ url, ...rest }: Props) => (
   <>
-    <Container>
+    <Container {...rest}>
       <h2>Escucha nuestro último episodio</h2>
       <iframe
         src={url}
