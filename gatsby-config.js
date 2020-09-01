@@ -25,6 +25,7 @@ module.exports = {
     titter: '@ControlRemoto7',
     instagram: '@controlremoto_podcast',
     organization: 'Control Remoto',
+    image: 'assets/ilustracion.svg',
   },
   plugins: [
     /*

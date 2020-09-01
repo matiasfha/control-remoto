@@ -30,12 +30,13 @@ const Seo: React.FC<Props> = ({ frontmatter }: Props) => {
           author
           keywords
           siteUrl
+          image
         }
       }
     }
   `)
-  let ogImage
   const site = data.site.siteMetadata
+  const ogImage = site.image
   const title = frontmatter.title || site.title
   const description = frontmatter.description || site.description
   const keywords = `${frontmatter.keywords},${site.keywords.join(',')}`
