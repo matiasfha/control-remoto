@@ -37,6 +37,7 @@ function Episodio({ data }) {
           ...episode,
           keywords: episode.tags,
           image: episode.artwork_url,
+          description: episode.summary,
         }}
       >
         <Container>
@@ -61,6 +62,7 @@ export const pageQuery = graphql`
       published_at
       audio_url
       artwork_url
+      summary
       remoteImage {
         childImageSharp {
           fluid(maxWidth: 240, quality: 80) {
