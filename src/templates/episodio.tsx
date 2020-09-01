@@ -30,13 +30,13 @@ function Episodio({ data }) {
   let [, podcastId, episodeId] = pathname.split('/')
   episodeId = episodeId.split('.')[0]
   const embedUrl = `https://www.buzzsprout.com/${podcastId}/${episodeId}?client_source=admin&amp;iframe=true`
-  console.log(episode)
   return (
     <>
       <Layout
         frontmatter={{
           ...episode,
           keywords: episode.tags,
+          image: episode.artwork_url,
         }}
       >
         <Container>
@@ -60,6 +60,15 @@ export const pageQuery = graphql`
       tags
       published_at
       audio_url
+      artwork_url
+      remoteImage {
+        childImageSharp {
+          fluid(maxWidth: 240, quality: 80) {
+            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluidLimitPresentationSize
+          }
+        }
+      }
     }
   }
 `

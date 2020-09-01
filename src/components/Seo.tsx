@@ -15,6 +15,7 @@ export type FrontMatterT = {
   title: string
   description: string
   keywords: string
+  image?: string
 }
 export type Props = {
   frontmatter?: FrontMatterT
@@ -36,7 +37,7 @@ const Seo: React.FC<Props> = ({ frontmatter }: Props) => {
     }
   `)
   const site = data.site.siteMetadata
-  const ogImage = site.image
+  const ogImage = frontmatter.image || site.image
   const title = frontmatter.title || site.title
   const description = frontmatter.description || site.description
   const keywords = `${frontmatter.keywords},${site.keywords.join(',')}`

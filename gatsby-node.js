@@ -90,5 +90,20 @@ exports.onCreateNode = async ({
       node,
       value: node.tags || [],
     })
+
+    if (node.artwork_url) {
+      const fileNode = await createRemoteFileNode({
+        // the url of the remote image to generate a node for
+        url: node.artwork_url,
+        parentNodeId: node.id,
+        createNode,
+        createNodeId,
+        getCache,
+      })
+      if (fileNode) {
+        //node.remoteImage___NODE = fileNode.id;
+        node.artwork___NODE = fileNode.id
+      }
+    }
   }
 }
