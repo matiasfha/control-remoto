@@ -46,6 +46,7 @@ type EpisodeT = {
   audio_url: string
   title: string
   published_at: string
+  slug: string
   remoteImage: {
     childImageSharp: {
       fluid: {
@@ -56,26 +57,25 @@ type EpisodeT = {
 }
 type PropsT = {
   episodes: Array<EpisodeT>
+  content: string
 }
 
-const getLink = (audio_url: string) => {
-  return audio_url.split('.mp3').shift()
+const getLink = (slug: string) => {
+  const [, , ...title] = slug.split('-')
+  return `episodios/${title.join('-').toLowerCase()}`
 }
 
-const Playlist: React.FC<PropsT> = ({ episodes }: PropsT) => {
+const Playlist: React.FC<PropsT> = ({ episodes, content }: PropsT) => {
   return (
     <Container>
       <TitleContainer>
         <h2>Episodios</h2>
-        <p>
-          Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. In
-          malesuada enim in dolor euismod, id commodo mi consect.
-        </p>
+        <p>{content}</p>
       </TitleContainer>
       <Episodes>
         {episodes.map((node: EpisodeT) => (
           <Episode key={node.id}>
-            <Link to={`episodios/${node.slug}`}>
+            <Link to={getLink(node.slug)}>
               <img
                 src={node.remoteImage.childImageSharp.fluid.src}
                 alt={node.title}

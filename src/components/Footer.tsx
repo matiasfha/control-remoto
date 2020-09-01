@@ -1,5 +1,6 @@
 import React from 'react'
 import tw, { styled } from 'twin.macro'
+import { useStaticQuery, graphql } from 'gatsby'
 import DefaultGrid from '@/components/Grid'
 import Instagram from '@/assets/instagram-brands.svg'
 import Twitter from '@/assets/twitter-brands.svg'
@@ -62,7 +63,7 @@ const Social = styled.div`
   }
 `
 
-const Matias = () => {
+const Matias = ({ content }: { content: string }) => {
   return (
     <Card>
       <Content>
@@ -75,10 +76,7 @@ const Matias = () => {
           <h3>El Informático</h3>
         </div>
       </Content>
-      <Description>
-        Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. In
-        malesuada enim in dolor euismod, id commodo mi consect.
-      </Description>
+      <Description>{content}</Description>
       <Social>
         <a href="https://twitter.com/matiasfha">
           <Twitter width="20px" height="17px" />
@@ -93,7 +91,7 @@ const Matias = () => {
     </Card>
   )
 }
-const Camilo = () => {
+const Camilo = ({ content }: { content: string }) => {
   return (
     <Card>
       <Content>
@@ -107,10 +105,7 @@ const Camilo = () => {
         </div>
       </Content>
 
-      <Description>
-        Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. In
-        malesuada enim in dolor euismod, id commodo mi consect.
-      </Description>
+      <Description>{content}</Description>
       <Social>
         <a href="https://twitter.com/elcamilosoy">
           <Twitter width="20px" height="17px" />
@@ -134,22 +129,40 @@ const AboutSection: React.FC = () => {
   React.useEffect(() => {
     setRef(ref)
   }, [ref, setRef])
+
+  const data = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          pageContent {
+            descripciones {
+              camilo
+              matias
+            }
+            controlRemotoEs
+          }
+        }
+      }
+    }
+  `)
+  const {
+    site: {
+      siteMetadata: {
+        pageContent: { descripciones, controlRemotoEs },
+      },
+    },
+  } = data
   return (
     <>
       <Container>
         <Grid>
           <div ref={ref}>
             <Title>Control Remoto es</Title>
-            <Copy>
-              Después de 8 años de trabajo remoto, Camilo y Matias se embarcan
-              en la idea de comunicar sus experiencias y nos hablan del trabajo
-              a distancia y la vida en un intento de mantener la cordura desde
-              su encierro.
-            </Copy>
+            <Copy>{controlRemotoEs}</Copy>
           </div>
           <Columns>
-            <Camilo />
-            <Matias />
+            <Camilo content={descripciones.camilo} />
+            <Matias content={descripciones.matias} />
           </Columns>
         </Grid>
       </Container>

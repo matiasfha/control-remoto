@@ -14,6 +14,16 @@ const baseUrl = 'https://www.controlremoto.io',
   isNetlifyProduction = NETLIFY_ENV === 'production',
   siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
 
+const descripciones = {
+  camilo: `Novio de Pamela, viven con una perrita que es la encarnación de Satanás. Autodidacta, aspirante a cocinero, a veces carpintero, ama series y películas por igual. Actualmente trata de aprender a tocar el bajo. 7 años trabajando remoto.`,
+  matias: `Papá de Mia e Inti y compañero de Nicole. Hace más de 8 años balancea toda su vida trabajando desde casa. Ávido lector, machaca teclados, se las da de gimnasta y siempre trata de estar al día con la contingencia para opinar con propiedad.`,
+}
+
+const controlRemotoEs = `Después de 8 años de trabajo remoto, Camilo y Matias se embarcan en la idea de comunicar sus experiencias y nos hablan del trabajo a distancia y la vida en un intento de mantener la cordura desde su encierro.`
+
+const hero = `Control Remoto es el podcast donde Camilo y Matías conversan sobre la vida y el trabajo remoto`
+
+const playList = `¿Ya escuchaste el último episodio, quieres más? Publicamos un episodio nuevo todos los Martes, escucha nuestros episodios anteriores y súmate a la conversación.`
 module.exports = {
   pathPrefix: '/',
   siteMetadata: {
@@ -26,6 +36,12 @@ module.exports = {
     instagram: '@controlremoto_podcast',
     organization: 'Control Remoto',
     image: 'assets/ilustracion.svg',
+    pageContent: {
+      descripciones,
+      controlRemotoEs,
+      hero,
+      playList,
+    },
   },
   plugins: [
     /*

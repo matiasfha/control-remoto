@@ -33,8 +33,9 @@ exports.createPages = ({ actions, graphql }) =>
     edges.forEach(({ node }, i) => {
       const prev = i === 0 ? null : edges[i - 1].node
       const next = i === edges.length - 1 ? null : edges[i + 1].node
+      const [, , ...title] = node.slug.split('-')
       actions.createPage({
-        path: `episodios/${node.slug}`,
+        path: `episodios/${title.join('-').toLowerCase()}`,
         component: path.resolve(`./src/templates/episodio.tsx`),
         context: {
           id: node.id,

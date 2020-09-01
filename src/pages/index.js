@@ -16,7 +16,9 @@ const Grid = styled(DefaultGrid)`
   ${tw`relative pb-20 max-w-screen-md`}
 `
 
-export default function Index({ data: { allPodcastEpisodeControlRemoto } }) {
+export default function Index({
+  data: { site, allPodcastEpisodeControlRemoto },
+}) {
   const lastEpisode = allPodcastEpisodeControlRemoto.nodes[0],
     { pathname } = new URL(lastEpisode.audio_url)
   let [, podcastId, episodeId] = pathname.split('/')
@@ -26,19 +28,29 @@ export default function Index({ data: { allPodcastEpisodeControlRemoto } }) {
 
   return (
     <Layout>
-      <Hero />
+      <Hero content={site.siteMetadata.pageContent.hero} />
       <Container>
         <Grid>
           <Player url={embedUrl} />
-          <Playlist episodes={allPodcastEpisodeControlRemoto.nodes} />
+          <Playlist
+            episodes={allPodcastEpisodeControlRemoto.nodes}
+            content={site.siteMetadata.pageContent.playList}
+          />
         </Grid>
       </Container>
     </Layout>
   )
 }
-
 export const pageQuery = graphql`
   query {
+    site {
+      siteMetadata {
+        pageContent {
+          playList
+          hero
+        }
+      }
+    }
     allPodcastEpisodeControlRemoto(
       sort: { order: DESC, fields: published_at }
     ) {

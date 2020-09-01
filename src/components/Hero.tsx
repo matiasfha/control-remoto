@@ -11,7 +11,7 @@ const Grid = tw(GridDefault)`
   grid-cols-1 md:grid-cols-2
 `
 const H1 = styled.h1`
-  ${tw`text-white text-2xl md:text-4xl font-chivo font-bold text-left`}
+  ${tw`text-white text-2xl md:text-4xl font-chivo font-bold text-left self-center`}
   span {
     ${tw`no-underline text-red hover:underline cursor-pointer`}
   }
