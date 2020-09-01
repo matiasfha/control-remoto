@@ -33,10 +33,10 @@ const NavBar: React.FC = () => (
         <LogoImage />
       </Link>
       <Menu style={{ justifySelf: 'end' }}>
-        <MenuItem to="/">Home</MenuItem>
-        {/*<MenuItem to="/">Episodios</MenuItem>
-           <MenuItem to="/">Blog</MenuItem>*/}
-        <Button to="/communidad">Únete a la comunidad</Button>
+        {/*<MenuItem to="/">Home</MenuItem>
+        <MenuItem to="/">Episodios</MenuItem>
+           <MenuItem to="/">Blog</MenuItem>
+           <Button to="/communidad">Únete a la comunidad</Button>*/}
       </Menu>
     </Content>
   </Nav>
