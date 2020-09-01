@@ -6,7 +6,7 @@ import Link from '@/components/Link'
 import Grid from '@/components/Grid'
 
 const Nav = tw.nav`
-  bg-black h-16 max-w-full px-4 md:px-8 lg:w-auto pt-4
+  bg-dark h-16 max-w-full px-4 md:px-8 lg:w-auto pt-4
 `
 const Content = tw(Grid)`
 grid-flow-col grid-cols-3 justify-between md:grid-cols-4

@@ -5,21 +5,29 @@ import scrollToRef, { ScrollContext } from '../utils/scrollToRef'
 import Ilustracion from '@/assets/ilustracion.svg'
 
 const Container = tw.div`
-  bg-black max-w-full h-48 pt-8 pb-56 px-4 md:px-8
+bg-dark max-w-full h-72 md:pt-8 pb-56 px-4 md:px-8
 `
 const Grid = tw(GridDefault)`
   grid-cols-1 md:grid-cols-2
 `
 const H1 = styled.h1`
-  ${tw`text-white text-3xl md:text-4xl font-chivo font-bold text-center md:text-left`}
+  ${tw`text-white text-2xl md:text-4xl font-chivo font-bold text-left`}
   span {
     ${tw`no-underline text-red hover:underline cursor-pointer`}
   }
 `
 
-const StyledSvg = styled(Ilustracion)`
+const DesktopSvg = styled(Ilustracion)`
   justify-self: end;
-  ${tw`hidden md:inline-block w-11/12 lg:w-full`};
+  ${tw`hidden md:block`};
+  @media (min-width: 768px) {
+    max-width: 90%;
+  }
+`
+
+const MobileSvg = styled(Ilustracion)`
+  ${tw`md:hidden`}
+  justify-self: center;
 `
 
 const Hero: React.FC = () => {
@@ -32,12 +40,13 @@ const Hero: React.FC = () => {
   return (
     <Container>
       <Grid>
+        <MobileSvg width="270px" height="219px" />
         <H1>
           Control Remoto es el podcast donde{' '}
           <span onClick={onClick}>Camilo y Matías </span>
           conversan sobre la vida y el trabajo remoto
         </H1>
-        <StyledSvg />
+        <DesktopSvg />
       </Grid>
     </Container>
   )

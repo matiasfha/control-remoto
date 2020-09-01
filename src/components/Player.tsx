@@ -8,7 +8,7 @@ import Google from '@/assets/google.svg'
 const Container = styled.div`
   ${tw`-mt-32 rounded-md w-full pb-8`}
   h2 {
-    ${tw`text-red text-center font-chivo font-bold text-3xl leading-10`}
+    ${tw`text-red text-center font-chivo font-bold text-xl md:text-3xl leading-10`}
   }
 `
 

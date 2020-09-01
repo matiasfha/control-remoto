@@ -7,38 +7,47 @@ import Egghead from '@/assets/egghead.svg'
 import { ScrollContext } from '../utils/scrollToRef'
 
 const Container = tw.div`
-  bg-black grid grid-rows-1 max-w-full pt-12 gap-12 px-4 md:px-8
+  bg-dark grid grid-rows-1 max-w-full pt-12 gap-12 px-4 md:px-8
 `
 
 const Grid = styled(DefaultGrid)`
   ${tw`max-w-screen-md`}
 `
 const Title = tw.h1`
-  text-center text-red font-chivo font-bold leading-8
+text-xl md:text-3xl text-center text-red font-chivo font-bold leading-8
 `
 const Copy = tw.p`
-  italic text-white font-playfair text-xl text-center
+text-lg md:text-xl italic text-white font-playfair text-center
 `
 
 const Columns = styled.div`
   ${tw`grid grid-cols-1 md:grid-cols-2 md:gap-8 w-full py-16`}
   justify-items: center;
 `
-
 const Card = styled.div`
-  ${tw`flex flex-col items-center justify-between mb-8`}
+  ${tw`flex flex-col items-start md:items-center justify-between mb-8`}
+`
+
+const Content = styled.div`
+  ${tw`grid gap-4`}
+  grid-template-columns: 80px 1fr;
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    text-align: center;
+    justify-items: center;
+  }
   h2 {
     ${tw`font-chivo text-white text-xl leading-6 font-bold mb-0`}
   }
   h3 {
     ${tw`font-chivo text-white leading-5 text-lg font-normal m-0`}
   }
-  p {
-    ${tw`font-muli text-white leading-5 text-sm pt-4 text-center`}
-  }
   img {
-    ${tw`rounded-full w-32`}
+    ${tw`rounded-full w-20 md:w-32`}
   }
+`
+const Description = styled.p`
+  ${tw`font-muli text-white leading-5 text-sm text-left md:text-center`}
 `
 
 const Social = styled.div`
@@ -56,16 +65,20 @@ const Social = styled.div`
 const Matias = () => {
   return (
     <Card>
-      <img
-        src="https://avatars3.githubusercontent.com/u/282006?s=400&u=a9d3c26dc6c2cfc5cbe04192b1fd6c2bb29c9be5&v=4"
-        alt="@matiasfha"
-      />
-      <h2>Matías Hernández</h2>
-      <h3>El Informático</h3>
-      <p>
+      <Content>
+        <img
+          src="https://avatars3.githubusercontent.com/u/282006?s=400&u=a9d3c26dc6c2cfc5cbe04192b1fd6c2bb29c9be5&v=4"
+          alt="@matiasfha"
+        />
+        <div>
+          <h2>Matías Hernández</h2>
+          <h3>El Informático</h3>
+        </div>
+      </Content>
+      <Description>
         Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. In
         malesuada enim in dolor euismod, id commodo mi consect.
-      </p>
+      </Description>
       <Social>
         <a href="https://twitter.com/matiasfha">
           <Twitter width="20px" height="17px" />
@@ -83,16 +96,21 @@ const Matias = () => {
 const Camilo = () => {
   return (
     <Card>
-      <img
-        src="https://avatars0.githubusercontent.com/u/25529313?s=460&u=6c824ed96231f9337264e49dbe5349b693bdd05d&v=4"
-        alt="@elcamilosoy"
-      />
-      <h2>Camilo Muñoz</h2>
-      <h3>El Diseñador</h3>
-      <p>
+      <Content>
+        <img
+          src="https://avatars0.githubusercontent.com/u/25529313?s=460&u=6c824ed96231f9337264e49dbe5349b693bdd05d&v=4"
+          alt="@elcamilosoy"
+        />
+        <div>
+          <h2>Camilo Muñoz</h2>
+          <h3>El Diseñador</h3>
+        </div>
+      </Content>
+
+      <Description>
         Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. In
         malesuada enim in dolor euismod, id commodo mi consect.
-      </p>
+      </Description>
       <Social>
         <a href="https://twitter.com/elcamilosoy">
           <Twitter width="20px" height="17px" />
@@ -106,7 +124,7 @@ const Camilo = () => {
 }
 
 const Footer = styled.div`
-  ${tw`text-center font-muli text-white text-sm pb-8 md:px-8`}
+  ${tw`text-center font-muli text-white text-sm py-4 w-full`}
   background-color: #000;
 `
 
@@ -117,24 +135,26 @@ const AboutSection: React.FC = () => {
     setRef(ref)
   }, [ref, setRef])
   return (
-    <Container>
-      <Grid>
-        <div ref={ref}>
-          <Title>Control Remoto es</Title>
-          <Copy>
-            Después de 8 años de trabajo remoto, Camilo y Matias se embarcan en
-            la idea de comunicar sus experiencias y nos hablan del trabajo a
-            distancia y la vida en un intento de mantener la cordura desde su
-            encierro.
-          </Copy>
-        </div>
-        <Columns>
-          <Camilo />
-          <Matias />
-        </Columns>
-        <Footer>Control Remoto ©2020</Footer>
-      </Grid>
-    </Container>
+    <>
+      <Container>
+        <Grid>
+          <div ref={ref}>
+            <Title>Control Remoto es</Title>
+            <Copy>
+              Después de 8 años de trabajo remoto, Camilo y Matias se embarcan
+              en la idea de comunicar sus experiencias y nos hablan del trabajo
+              a distancia y la vida en un intento de mantener la cordura desde
+              su encierro.
+            </Copy>
+          </div>
+          <Columns>
+            <Camilo />
+            <Matias />
+          </Columns>
+        </Grid>
+      </Container>
+      <Footer>Control Remoto ©2020</Footer>
+    </>
   )
 }
 
