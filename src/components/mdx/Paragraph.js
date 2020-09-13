@@ -1,9 +1,5 @@
-import styled from 'styled-components'
+import twin from 'twin.macro'
 
-export default styled.p`
-  text-align: left;
-  font-size: 16px;
-  line-height: 1.58;
-  letter-spacing: -0.003em;
-  color: #555555;
+export default twin.p`
+  text-black font-muli text-lg md:text-xl
 `

@@ -1,10 +1,5 @@
-import styled from 'styled-components'
+import tw from 'twin.macro'
 
-export default styled.h2`
-  text-align: left;
-  font-size: 18px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-weight: 900;
-  line-height: 1.1;
+export default tw.h2`
+  text-lg md:text-xl text-black font-chivo font-bold leading-8
 `
