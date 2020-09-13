@@ -24,7 +24,6 @@ const Hero = styled(DefaultHero)`
 `
 
 function Page({ children, pageContext: { frontmatter } }) {
-  console.log(frontmatter.hero)
   return (
     <>
       <Layout frontmatter={frontmatter}>
