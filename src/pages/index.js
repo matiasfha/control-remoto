@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import tw, { styled } from 'twin.macro'
 
 import Layout from '@/components/Layout'
-import Hero from '@/components/Hero'
+import HeroContent from './HeroContent'
 import DefaultGrid from '@/components/Grid'
 import Player from '@/components/Player'
 import Playlist from '@/components/Playlist'
@@ -28,7 +28,7 @@ export default function Index({
 
   return (
     <Layout>
-      <Hero content={site.siteMetadata.pageContent.hero} />
+      <HeroContent />
       <Container>
         <Grid>
           <Player url={embedUrl} />

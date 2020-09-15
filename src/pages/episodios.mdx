@@ -1,0 +1,47 @@
+---
+title: Episodios de Control Remoto
+description: Todos los episodios de Control Remoto
+hero: <h1>Un podcast sobre <span>la vida y el trabajo remoto</span></h1>
+keyworkds: Podcast, Playlist
+---
+
+import { graphql } from 'gatsby'
+import Playlist from '@/components/Playlist'
+
+<Playlist
+  episodes={props.data.allPodcastEpisodeControlRemoto.nodes}
+  content="Test contetn"
+/>
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        pageContent {
+          playList
+          hero
+        }
+      }
+    }
+    allPodcastEpisodeControlRemoto(
+      sort: { order: DESC, fields: published_at }
+    ) {
+      nodes {
+        podcastName
+        id
+        title
+        slug
+        audio_url
+        published_at(fromNow: true, locale: "es")
+        remoteImage {
+          childImageSharp {
+            fluid(maxWidth: 120, quality: 70) {
+              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluidLimitPresentationSize
+            }
+          }
+        }
+      }
+    }
+  }
+`
