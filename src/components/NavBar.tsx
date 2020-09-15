@@ -15,7 +15,7 @@ const LogoImage = tw(Logo)`
   h-12 w-20
 `
 const Menu = tw.div`
-self-end text-white col-span-2 lg:self-center md:col-span-3 md:self-center
+self-end text-white col-span-2 lg:self-center md:col-span-3 self-center
 `
 
 const MenuItem = tw(Link)`
