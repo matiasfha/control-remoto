@@ -153,5 +153,16 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: 'UA-178170568-1',
+        anonymize: true,
+        // Setting this parameter is also optional
+        respectDNT: true,
+        defer: true,
+      },
+    },
   ],
 }
