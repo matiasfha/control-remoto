@@ -30,7 +30,7 @@ module.exports = {
     siteUrl: 'https://www.controlremoto.io',
     author: 'Matías Henrández & Camilo Muñoz',
     title: 'Control Remoto Podcast',
-    description: 'Un Pocast sobre la vida y el trabajo remoto',
+    description: 'Un Podcast sobre la vida y el trabajo remoto',
     keywords: ['Trabajo Remoto', 'Remote Work'],
     titter: '@ControlRemoto7',
     instagram: '@controlremoto_podcast',
