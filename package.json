@@ -27,7 +27,7 @@
     "gatsby-remark-prismjs": "^3.5.0",
     "gatsby-source-buzzsprout-api": "1.0.4",
     "gatsby-source-filesystem": "^2.3.27",
-    "gatsby-transformer-sharp": "^2.5.0",
+    "gatsby-transformer-sharp": "^2.5.19",
     "prismjs": "^1.20.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
