@@ -11,6 +11,10 @@ const getPath = (slug) => {
     path = slug.split(':')[1].trim().substring(1)
   }
   const n = path.toLowerCase().replace(',', '')
+  console.log({
+    slug,
+    n,
+  })
   return n
 }
 

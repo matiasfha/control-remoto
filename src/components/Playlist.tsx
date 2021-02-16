@@ -61,11 +61,16 @@ type PropsT = {
 }
 
 const getLink = (slug: string) => {
-  const [, , ...title] = slug.split('-')
-  return `episodios/${title.join('-').toLowerCase()}`
+  let path = slug
+  if (slug.includes(':')) {
+    path = slug.split(':')[1].trim().substring(1)
+  }
+  const n = path.toLowerCase().replace(',', '')
+  return `episodios/${n}`
 }
 
 const Playlist: React.FC<PropsT> = ({ episodes, content }: PropsT) => {
+  console.log(episodes)
   return (
     <Container>
       <TitleContainer>
