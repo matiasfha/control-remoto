@@ -5,6 +5,15 @@ const {
   createRemoteFileNode,
 } = require(`gatsby-source-filesystem`)
 
+const getPath = (slug) => {
+  let path = slug
+  if (slug.includes(':')) {
+    path = slug.split(':')[1].trim().substring(1)
+  }
+  const n = path.toLowerCase().replace(',', '')
+  return n
+}
+
 const createEpisodesPage = ({ edges, createPage, context }) => {
   edges.forEach(({ node }, i) => {
     const prev = i === 0 ? null : edges[i - 1].node
@@ -50,9 +59,9 @@ exports.createPages = ({ actions, graphql }) =>
     edges.forEach(({ node }, i) => {
       const prev = i === 0 ? null : edges[i - 1].node
       const next = i === edges.length - 1 ? null : edges[i + 1].node
-      const [, , ...title] = node.slug.split('-')
+      const location = getPath(node.slug)
       actions.createPage({
-        path: `episodios/${title.join('-').toLowerCase()}`,
+        path: `episodios/${location}`,
         component: path.resolve(`./src/templates/episodio.tsx`),
         context: {
           id: node.id,

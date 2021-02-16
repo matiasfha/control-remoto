@@ -18,6 +18,10 @@ const Player = styled(DefaultPlayer)`
     display: none;
   }
 `
+const H1 = tw.h1`
+text-dark font-muli font-bold
+`
+
 const Description = styled.div`
   ${tw`text-dark font-muli text-lg`}
   a {
@@ -43,6 +47,7 @@ function Episodio({ data }) {
         <Container>
           <Grid>
             <Player url={embedUrl} />
+            <H1>{episode.title}</H1>
             <Description
               dangerouslySetInnerHTML={{ __html: episode.description }}
             />
