@@ -59,20 +59,19 @@ function Episodio({ data }) {
 }
 export const pageQuery = graphql`
   query($id: String!) {
-    podcastEpisodeControlRemoto(fields: { id: { eq: $id } }) {
+    feedPodcast(id: { eq: $id }) {
+      id
       title
-      description
-      audio_url
-      tags
-      published_at
-      audio_url
-      artwork_url
-      summary
-      remoteImage {
-        childImageSharp {
-          fluid(maxWidth: 240, quality: 80) {
-            ...GatsbyImageSharpFluid
-            ...GatsbyImageSharpFluidLimitPresentationSize
+      content
+      enclosure {
+        url
+      }
+      isoDate(fromNow: true, locale: "es")
+      link
+      itunes {
+        image {
+          attrs {
+            href
           }
         }
       }
