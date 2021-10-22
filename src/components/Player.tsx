@@ -29,13 +29,13 @@ const Player: React.FC<Props> = ({ url, ...rest }: Props) => (
     <Container {...rest}>
       <h2>Escucha nuestro último episodio</h2>
       <iframe
-        src={url}
-        width="100%"
-        height="200"
+        src="https://app.fusebox.fm/embed/player/track/56gNP1mW0m/36?uncontained"
         frameBorder="0"
-        scrolling="no"
-        title="Podcast Episode"
-      />
+        width="100%"
+        height="160"
+        title="Control Remoto - Side Projects: Creando Estamos"
+      ></iframe>
+
       <Buttons>
         <a href="https://open.spotify.com/show/7ubkh0BN3QuBlcYFyCwzT6">
           <Spotify />
