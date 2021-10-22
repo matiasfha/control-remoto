@@ -16,11 +16,9 @@ const Grid = styled(DefaultGrid)`
   ${tw`relative pb-20 max-w-screen-md`}
 `
 
-export default function Index({
-  data: { site, allPodcastEpisodeControlRemoto },
-}) {
-  const lastEpisode = allPodcastEpisodeControlRemoto.nodes[0],
-    { pathname } = new URL(lastEpisode.audio_url)
+export default function Index({ data: { site, allFeedPodcast } }) {
+  const lastEpisode = allFeedPodcast.nodes[0],
+    { pathname } = new URL(lastEpisode.enclosure.url)
   let [, podcastId, episodeId] = pathname.split('/')
 
   episodeId = episodeId.split('.')[0]
@@ -32,8 +30,9 @@ export default function Index({
       <Container>
         <Grid>
           <Player url={embedUrl} />
+
           <Playlist
-            episodes={allPodcastEpisodeControlRemoto.nodes}
+            episodes={allFeedPodcast.nodes}
             content={site.siteMetadata.pageContent.playList}
           />
         </Grid>
@@ -51,21 +50,20 @@ export const pageQuery = graphql`
         }
       }
     }
-    allPodcastEpisodeControlRemoto(
-      sort: { order: DESC, fields: published_at }
-    ) {
+    allFeedPodcast(sort: { order: DESC, fields: isoDate }) {
       nodes {
-        podcastName
         id
         title
-        slug
-        audio_url
-        published_at(fromNow: true, locale: "es")
-        remoteImage {
-          childImageSharp {
-            fluid(maxWidth: 120, quality: 70) {
-              ...GatsbyImageSharpFluid
-              ...GatsbyImageSharpFluidLimitPresentationSize
+        content
+        enclosure {
+          url
+        }
+        isoDate(fromNow: true, locale: "es")
+        link
+        itunes {
+          image {
+            attrs {
+              href
             }
           }
         }

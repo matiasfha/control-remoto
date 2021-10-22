@@ -10,9 +10,9 @@ const baseUrl = 'https://www.controlremoto.io',
     DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
     CONTEXT: NETLIFY_ENV = NODE_ENV,
     BUZZSPROUT_TOKEN,
-  } = process.env,
-  isNetlifyProduction = NETLIFY_ENV === 'production',
-  siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
+  } = process.env
+
+const isNetlifyProduction = NETLIFY_ENV === 'production'
 
 const descripciones = {
   camilo: `Novio de Pamela, viven con una perrita que es la encarnación de Satanás. Autodidacta, aspirante a cocinero, a veces carpintero, ama series y películas por igual. Actualmente trata de aprender a tocar el bajo. 7 años trabajando remoto.`,
@@ -53,14 +53,6 @@ module.exports = {
      *    },
      *    },
      */
-    {
-      resolve: 'gatsby-source-buzzsprout-api',
-      options: {
-        name: 'ControlRemoto',
-        token: BUZZSPROUT_TOKEN,
-        podcastId: '1057351',
-      },
-    },
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
@@ -164,5 +156,19 @@ module.exports = {
         defer: true,
       },
     },
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://anchor.fm/s/5cfb84c8/podcast/rss`,
+        name: `Podcast`,
+        // Optional
+        // Read parser document: https://github.com/bobby-brennan/rss-parser#readme
+        parserOption: {
+          customFields: {
+            item: ['itunes:duration','itunes:image']
+          }
+        }
+      }
+    }
   ],
 }

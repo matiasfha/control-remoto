@@ -43,14 +43,17 @@ const Episode = styled.li`
 
 type EpisodeT = {
   id: string
-  audio_url: string
   title: string
-  published_at: string
-  slug: string
-  remoteImage: {
-    childImageSharp: {
-      fluid: {
-        src: string
+  content: string
+  enclosure: {
+    url: string
+  }
+  isoDate: string
+  link: string
+  itunes: {
+    image: {
+      attrs: {
+        href: string
       }
     }
   }
@@ -61,6 +64,7 @@ type PropsT = {
 }
 
 const getLink = (slug: string) => {
+  console.log(slug)
   let path = slug
   if (slug.includes(':')) {
     path = slug.split(':')[1].trim().substring(1)
@@ -70,7 +74,6 @@ const getLink = (slug: string) => {
 }
 
 const Playlist: React.FC<PropsT> = ({ episodes, content }: PropsT) => {
-  console.log(episodes)
   return (
     <Container>
       <TitleContainer>
@@ -80,16 +83,13 @@ const Playlist: React.FC<PropsT> = ({ episodes, content }: PropsT) => {
       <Episodes>
         {episodes.map((node: EpisodeT) => (
           <Episode key={node.id}>
-            <Link to={getLink(node.slug)}>
-              <img
-                src={node.remoteImage.childImageSharp.fluid.src}
-                alt={node.title}
-              />
+            <a href={node.link}>
+              <img src={node.itunes.image.attrs.href} alt={node.title} />
               <div>
                 <h4>{node.title}</h4>
-                <span>{node.published_at}</span>
+                <span>{node.isoDate}</span>
               </div>
-            </Link>
+            </a>
           </Episode>
         ))}
       </Episodes>
